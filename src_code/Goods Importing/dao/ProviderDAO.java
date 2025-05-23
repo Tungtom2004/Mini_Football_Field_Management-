@@ -13,7 +13,7 @@ public class ProviderDAO extends DAO {
 
     public Provider[] SearchProvider(String key) {
         ArrayList<Provider> result = new ArrayList<>();
-        String sql = "SELECT * FROM tblProviders WHERE name LIKE ?";
+        String sql = "SELECT * FROM tblProviders WHERE providerName LIKE ?";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, "%" + key + "%");
@@ -21,7 +21,7 @@ public class ProviderDAO extends DAO {
             while (rs.next()) {
                 Provider p = new Provider(
                     rs.getString("providerID"),
-                    rs.getString("name"),
+                    rs.getString("providerName"),
                     rs.getString("address"),
                     rs.getString("email"),
                     rs.getString("phone"),
@@ -36,7 +36,7 @@ public class ProviderDAO extends DAO {
     }
 
     public boolean AddProvider(Provider provider) {
-        String sql = "INSERT INTO tblProviders(providerID, name, address, email, phone, description) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO tblProviders(providerID, providerName, address, email, phone, description) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, provider.getProviderID());
@@ -53,4 +53,8 @@ public class ProviderDAO extends DAO {
         }
         return false;
     }
+    
+    
+   
+    
 }

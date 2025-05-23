@@ -12,15 +12,15 @@ import java.io.Serializable;
 
 public class Provider implements Serializable{
     private String providerID;
-    private String name;
+    private String providerName;
     private String address;
     private String email;
     private String phone;
     private String description;
 
-    public Provider(String providerID, String name, String address, String email, String phone, String description) {
+    public Provider(String providerID, String providerName, String address, String email, String phone, String description) {
         this.providerID = providerID;
-        this.name = name;
+        this.providerName = providerName;
         this.address = address;
         this.email = email;
         this.phone = phone;
@@ -32,35 +32,35 @@ public class Provider implements Serializable{
     }
 
     public String getProviderID() {
-        return providerID;
+        return this.providerID;
     }
 
     public String getName() {
-        return name;
+        return this.providerName;
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setProviderID(String providerID) {
         this.providerID = providerID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String providerName) {
+        this.providerName = providerName;
     }
 
     public void setAddress(String address) {

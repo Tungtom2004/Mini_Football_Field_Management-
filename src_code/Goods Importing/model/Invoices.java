@@ -1,49 +1,53 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 import java.io.Serializable;
+import java.util.List;
 
-public class Invoices implements Serializable{
-    private String invoicesID; 
+public class Invoices implements Serializable {
+    private String invoicesID;
     private String usersID;
-    private InvoicesGood invoicesGood; 
-
-    public Invoices(String invoicesID, String usersID) {
-        this.invoicesID = invoicesID;
-        this.usersID = usersID;
-        this.invoicesGood = invoicesGood; 
-    }
+    private List<InvoicesGood> listGood;
+    private String providerID;
 
     public Invoices() {
-        super(); 
+        super();
     }
 
+    public Invoices(String invoicesID, String usersID, List<InvoicesGood> listGood, String providerID) {
+        this.invoicesID = invoicesID;
+        this.usersID = usersID;
+        this.listGood = listGood;
+        this.providerID = providerID;
+    }
+
+    public String getProviderID() {
+        return this.providerID;
+    }
+
+    public void setProviderID(String providerID) {
+        this.providerID = providerID;
+    }
+    
     public String getInvoicesID() {
-        return invoicesID;
-    }
-
-    public String getUsersID() {
-        return usersID;
+        return this.invoicesID;
     }
 
     public void setInvoicesID(String invoicesID) {
         this.invoicesID = invoicesID;
     }
 
+    public String getUsersID() {
+        return this.usersID;
+    }
+
     public void setUsersID(String usersID) {
         this.usersID = usersID;
     }
 
-    public void setInvoicesGood(InvoicesGood invoicesGood) {
-        this.invoicesGood = invoicesGood;
+    public List<InvoicesGood> getListGood() {
+        return listGood;
     }
 
-    public InvoicesGood getInvoicesGood() {
-        return invoicesGood;
+    public void setListGood(List<InvoicesGood> listGood) {
+        this.listGood = listGood;
     }
-    
-    
-    
 }

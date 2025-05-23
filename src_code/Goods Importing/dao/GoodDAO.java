@@ -15,13 +15,13 @@ public class GoodDAO extends DAO{
     
     public Good[] SearchGood(String key){
         ArrayList<Good> result = new ArrayList<>();
-        String sql = "SELECT * FROM tblGoods WHERE name LIKE ?";
+        String sql = "SELECT * FROM tblGoods WHERE goodName LIKE ?";
         try{
             PreparedStatement ps = con.prepareStatement(sql); 
-            ps.setString(1,'%' + key + '%');
+            ps.setString(1,"%" + key + "%");
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                Good g = new Good(rs.getString("goodsID"),rs.getString("name"), rs.getString("providerID")); 
+                Good g = new Good(rs.getString("goodsID"),rs.getString("goodName"), rs.getString("providerID")); 
                 result.add(g); 
             }
         }catch(Exception e){
@@ -31,7 +31,7 @@ public class GoodDAO extends DAO{
     }
     
     public boolean AddGood(Good good){
-        String sql = "INSERT INTO tblGoods(goodsId,name,providerID) VALUES(?,?,?)"; 
+        String sql = "INSERT INTO tblGoods(goodsId,goodName,providerID) VALUES(?,?,?)"; 
         try{
             PreparedStatement ps = con.prepareStatement(sql); 
             ps.setString(1,good.getGoodsID()); 

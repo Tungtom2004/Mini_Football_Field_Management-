@@ -18,7 +18,7 @@ public class User implements Serializable{
         super();
     }
 
-    public User(String usersID, String username, String password) {
+    public User(String usersID,String username, String password) {
         this.usersID = usersID;
         this.username = username;
         this.password = password;
@@ -38,15 +38,15 @@ public class User implements Serializable{
     }
 
     public String getUsersID() {
-        return usersID;
+        return this.usersID;
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
     
     

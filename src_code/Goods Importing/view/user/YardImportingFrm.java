@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.*;
 import model.User;
 import view.user.YardManagerHomeFrm;
+import view.provider.SearchProviderFrm; 
 
 public class YardImportingFrm extends JFrame implements ActionListener{
     private User user;
@@ -64,8 +65,8 @@ public class YardImportingFrm extends JFrame implements ActionListener{
             new YardManagerHomeFrm(user).setVisible(true);
         }
         else if(e.getSource() == btnSearch){
-            new SearchFrm(user).setVisible(true);
             this.dispose();
+            new SearchProviderFrm(user).setVisible(true);
         }
     }
     

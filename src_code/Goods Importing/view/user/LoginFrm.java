@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package view.user;
+package view.user;  
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -59,9 +59,16 @@ public class LoginFrm extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         if((e.getSource() instanceof JButton) && ((JButton) e.getSource()).equals(btnLogin)){
+            
+            if(txtUsername.getText().isEmpty() || txtPassword.getPassword().length == 0){
+                JOptionPane.showMessageDialog(this,"Vui lòng nhập thông tin và mật khẩu");
+                return; 
+            }
+            
             User user = new User();
             user.setUsername(txtUsername.getText().trim());
             user.setPassword(new String(txtPassword.getPassword()).trim());
@@ -80,9 +87,6 @@ public class LoginFrm extends JFrame implements ActionListener{
             
         }
     }
-    public static void main(String[] args) {
-        new LoginFrm().setVisible(true);
-    }
-
+    
     
 }

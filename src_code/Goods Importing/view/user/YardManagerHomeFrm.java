@@ -68,7 +68,7 @@ public class YardManagerHomeFrm extends JFrame implements ActionListener{
     }
     
     public void btnLogOutClick(){
-        int confirm = JOptionPane.showConfirmDialog(this,"Are you sure to log out?","Confirm",JOptionPane.YES_NO_OPTION); 
+        int confirm = JOptionPane.showConfirmDialog(this,"Bạn có chắc muốn đăng xuất không?","Xác nhận",JOptionPane.YES_NO_OPTION); 
         if(confirm == JOptionPane.YES_OPTION){
             this.dispose();
             new LoginFrm().setVisible(true);

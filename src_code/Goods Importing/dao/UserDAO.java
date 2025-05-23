@@ -17,22 +17,22 @@ public class UserDAO extends DAO{
     }
     
     public boolean checkLogin(User user){
-        boolean result = false;
         String sql = "SELECT usersID, username FROM tblUsers WHERE username = ? AND password = ?";
-        try{
+        try {
             PreparedStatement ps = con.prepareStatement(sql); 
-            ps.setString(1,user.getUsername()); 
-            ps.setString(2,user.getPassword()); 
+            ps.setString(1, user.getUsername()); 
+            ps.setString(2, user.getPassword()); 
             ResultSet rs = ps.executeQuery();
-            if(rs.next()){
-                user.setPassword(rs.getString("usersID"));
-                user.setUsername(rs.getString("username"));
-                return true; 
+            if(rs.next()) {
+                user.setUsersID(rs.getString("usersID")); 
+                user.setUsername(rs.getString("username")); 
+                return true;
             }
-        }catch(Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
         return false; 
     }
+
     
 }
